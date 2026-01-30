@@ -47,6 +47,11 @@ if st.button("Prever risco de defasagem"):
     }
 
     aluno_df = pd.DataFrame([input_dict])
+
+    # 🔑 Ajuste da opção 1: garantir que todas as colunas sejam numéricas
+    aluno_df = aluno_df.astype(float)
+
+    # Transformações
     aluno_imputed = imputer.transform(aluno_df)
     aluno_scaled = scaler.transform(aluno_imputed)
 
